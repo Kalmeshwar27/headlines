@@ -3,52 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>The Headlines</title>
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="style.css" />
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXX'); // Replace with your GA Measurement ID
-  </script>
+  <title>Loading...</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Poppins', sans-serif;
+      height: 100vh;
+      background: #0e0e0e;
+    }
+    .loader {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: #ddd4d4;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0% { opacity: 0.4; }
+      50% { opacity: 1; }
+      100% { opacity: 0.4; }
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>The Headlines</h1>
-      <div class="meta">
-        <span>Business</span>
-        <span>May 2025</span>
-      </div>
-    </header>
+  <div class="loader">Loading...</div>
 
-    <div class="card">
-      <div class="card-content">
-        <div class="image">
-          <img id="headline-image" src="" alt="Headline Image">
-        </div>
-        <div class="news">
-          <p id="headline-text"></p>
-          <div class="options" id="options-container"></div>
-          <div class="result" id="result-text"></div>
-        </div>
-      </div>
-      <div class="controls">
-        <button id="prev-btn">Previous</button>
-        <span id="question-count">1 / 1</span>
-        <button id="next-btn">Next</button>
-      </div>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
+  <script>
+    setTimeout(() => {
+      window.location.href = "start.html";
+    }, 3000); // 3 seconds delay
+  </script>
 </body>
 </html>

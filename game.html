@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Headlines</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXX'); // Replace with your GA Measurement ID
+  </script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>The Headlines</h1>
+      <div class="meta">
+        <span>Business</span>
+        <span>May 2025</span>
+      </div>
+    </header>
+
+    <div class="card">
+      <div class="card-content">
+        <div class="image">
+          <img id="headline-image" src="" alt="Headline Image">
+        </div>
+        <div class="news">
+          <p id="headline-text"></p>
+          <div class="options" id="options-container"></div>
+          <div class="result" id="result-text"></div>
+        </div>
+      </div>
+      <div class="controls">
+        <button id="prev-btn">Previous</button>
+        <span id="question-count">1 / 1</span>
+        <button id="next-btn">Next</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
