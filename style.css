@@ -1,97 +1,144 @@
 body {
   margin: 0;
-  padding: 40px;
-  font-family: 'Libre Baskerville', serif;
+  font-family: 'Poppins', sans-serif;
   background-color: #f2f2f2;
   display: flex;
   justify-content: center;
-}
-
-.newspaper {
-  background: #ffffff;
   padding: 40px;
-  max-width: 900px;
-  width: 100%;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
 }
 
-header h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 3.5rem;
+.container {
+  max-width: 1000px;
+  width: 100%;
+  background-color: #fefefe;
+  border: 1px solid #ccc;
+  padding: 40px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+header {
   text-align: center;
-  margin: 0;
+  border-bottom: 2px solid #333;
+  margin-bottom: 30px;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  margin-bottom: 10px;
 }
 
 .meta {
   display: flex;
   justify-content: space-between;
-  font-family: 'Libre Baskerville', serif;
+  font-family: 'Playfair Display', serif;
   font-size: 1rem;
-  padding: 10px 0;
+  border-top: 1px solid #333;
+  padding-top: 5px;
+  margin: 0 10px;
 }
 
-.divider {
-  border: none;
-  border-top: 2px solid #000;
-  margin-bottom: 30px;
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
-.article {
+.card-content {
   display: flex;
   gap: 30px;
 }
 
-.image-section {
+.image {
   flex: 1;
 }
 
-.image-section img {
+.image img {
   width: 100%;
   height: auto;
   border: 1px solid #ccc;
 }
 
-.text-section {
+.news {
   flex: 1;
-  border-left: 1px solid #999;
-  padding-left: 25px;
+  border-left: 1px solid #333;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.headline {
+.news p {
+  font-family: 'Playfair Display', serif;
   font-size: 1.5rem;
-  font-weight: bold;
-  color: #c05621;
-  margin-bottom: 20px;
+  font-weight: 600;
+  color: #c85f00;
+  line-height: 1.5;
+  margin-bottom: 15px;
 }
 
-#blank {
-  text-decoration: underline;
-  color: #000;
-}
-
-.summary {
+.result {
   font-style: italic;
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: #555;
+  margin-bottom: 15px;
 }
 
 .options {
-  margin-top: 20px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
 }
 
 button.option {
-  padding: 10px 15px;
-  font-family: 'Libre Baskerville', serif;
   font-size: 1rem;
+  font-weight: 500;
+  padding: 10px;
   border: 1px solid #ccc;
-  background-color: #eee;
+  background: #f7f7f7;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.3s ease;
 }
 
 button.option:hover {
-  background-color: #ddd;
+  background-color: #e5e5e5;
+}
+
+button.correct {
+  background-color: #2e7d32;
+  color: white;
+}
+
+button.wrong {
+  background-color: #c62828;
+  color: white;
+}
+
+.result {
+  margin-top: 10px;
+  font-style: italic;
+  font-size: 1.0rem;
+  color: #1f7818;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.controls button {
+  background-color: #000;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.controls span {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
 }

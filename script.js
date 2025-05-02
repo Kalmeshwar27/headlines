@@ -1,42 +1,72 @@
-// Sample data for headline
-const correctAnswer = "tough";
-const options = ["tough", "friendly", "passive", "aggressive"];
+const questions = [
+  {
+    image: "images/trump-speech.jpg",
+    text: 'Donald Trump said he would be "very <span id="blank">_____</span>" in negotiations with China.',
+    options: ["tough", "gentle", "silent", "neutral"],
+    answer: "tough",
+    summary: "Trump emphasized a firm stance on trade negotiations."
+  },
+  {
+    image: "images/elon.jpg",
+    text: 'Elon Musk announced Tesla would begin manufacturing in <span id="blank">_____</span> by next year.',
+    options: ["India", "Canada", "Brazil", "Russia"],
+    answer: "India",
+    summary: "Tesla’s expansion reflects growing demand in Asian markets."
+  },
+  // Add more questions as needed
+];
 
-// DOM references
-const optionsContainer = document.querySelector(".options");
-const result = document.getElementById("result");
-const blank = document.getElementById("blank");
+let currentIndex = 0;
 
-// Render options
-options.forEach(option => {
-  const button = document.createElement("button");
-  button.classList.add("option");
-  button.innerText = option;
-  button.addEventListener("click", () => handleAnswer(option, button));
-  optionsContainer.appendChild(button);
-});
+const image = document.getElementById("headline-image");
+const text = document.getElementById("headline-text");
+const optionsContainer = document.getElementById("options-container");
+const result = document.getElementById("result-text");
+const questionCount = document.getElementById("question-count");
 
-// Handle answer selection
-function handleAnswer(selected, button) {
-  // Disable all buttons after selection
-  document.querySelectorAll(".option").forEach(btn => {
-    btn.disabled = true;
-    btn.style.opacity = 0.6;
+function loadQuestion(index) {
+  const q = questions[index];
+  image.src = q.image;
+  text.innerHTML = q.text;
+  result.innerHTML = "";
+  optionsContainer.innerHTML = "";
+
+  q.options.forEach(option => {
+    const btn = document.createElement("button");
+    btn.className = "option";
+    btn.innerText = option;
+    btn.onclick = () => {
+      if (option === q.answer) {
+        btn.classList.add("correct!");
+        result.innerText = q.summary;
+      } else {
+        btn.classList.add("wrong");
+        result.innerText = `Incorrect!. ${q.summary}`;
+      }
+
+      Array.from(document.getElementsByClassName("option")).forEach(b => {
+        b.disabled = true;
+        if (b.innerText === q.answer) b.classList.add("correct");
+      });
+    };
+    optionsContainer.appendChild(btn);
   });
 
-  // Fill in the blank
-  blank.innerText = selected;
-
-  // Show result
-  if (selected === correctAnswer) {
-    result.innerText = "Correct! Donald Trump said he would be 'tough' in negotiations with China.";
-    result.style.color = "green";
-    button.style.backgroundColor = "#2f855a";
-    button.style.color = "white";
-  } else {
-    result.innerText = `Wrong. The correct word was "tough".`;
-    result.style.color = "red";
-    button.style.backgroundColor = "#c53030";
-    button.style.color = "white";
-  }
+  questionCount.innerText = `${index + 1} / ${questions.length}`;
 }
+
+document.getElementById("next-btn").onclick = () => {
+  if (currentIndex < questions.length - 1) {
+    currentIndex++;
+    loadQuestion(currentIndex);
+  }
+};
+
+document.getElementById("prev-btn").onclick = () => {
+  if (currentIndex > 0) {
+    currentIndex--;
+    loadQuestion(currentIndex);
+  }
+};
+
+window.onload = () => loadQuestion(currentIndex);
