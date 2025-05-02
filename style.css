@@ -5,6 +5,7 @@ body {
   display: flex;
   justify-content: center;
   padding: 40px;
+  box-sizing: border-box;
 }
 
 .container {
@@ -14,6 +15,7 @@ body {
   border: 1px solid #ccc;
   padding: 40px;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
 }
 
 header {
@@ -36,6 +38,7 @@ h1 {
   border-top: 1px solid #333;
   padding-top: 5px;
   margin: 0 10px;
+  flex-wrap: wrap;
 }
 
 .card {
@@ -46,11 +49,8 @@ h1 {
 
 .card-content {
   display: flex;
-  gap: 30px;
-}
-
-.image {
-  flex: 1;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .image img {
@@ -60,9 +60,8 @@ h1 {
 }
 
 .news {
-  flex: 1;
-  border-left: 1px solid #333;
-  padding-left: 20px;
+  border-top: 1px solid #333;
+  padding-top: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -79,8 +78,8 @@ h1 {
 
 .result {
   font-style: italic;
-  font-size: 0.95rem;
-  color: #555;
+  font-size: 1rem;
+  color: #1f7818;
   margin-bottom: 15px;
 }
 
@@ -114,18 +113,13 @@ button.wrong {
   color: white;
 }
 
-.result {
-  margin-top: 10px;
-  font-style: italic;
-  font-size: 1.0rem;
-  color: #1f7818;
-}
-
 .controls {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 10px;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .controls button {
@@ -141,4 +135,21 @@ button.wrong {
 .controls span {
   font-family: 'Playfair Display', serif;
   font-size: 1rem;
+}
+
+@media (min-width: 768px) {
+  .card-content {
+    flex-direction: row;
+  }
+
+  .image, .news {
+    flex: 1;
+  }
+
+  .news {
+    border-left: 1px solid #333;
+    padding-left: 20px;
+    border-top: none;
+    padding-top: 0;
+  }
 }
