@@ -4,44 +4,76 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Start Game</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
+      margin: 0;
+      background-color: #f9f6f1;
+      font-family: 'Poppins', sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background-color: #f2f2f2;
-      font-family: 'Playfair Display', serif;
-    }
-
-    .start-container {
+      flex-direction: column;
       text-align: center;
     }
 
-    .start-container h1 {
+    h1 {
+      font-family: 'Playfair Display', serif;
       font-size: 3rem;
-      margin-bottom: 30px;
+      margin-bottom: 10px;
+      opacity: 0;
+      animation: fadeIn 1.5s ease forwards;
     }
 
-    .start-container button {
-      padding: 12px 24px;
+    p {
       font-size: 1.2rem;
-      background-color: rgb(14, 31, 141);
-      color: white;
+      color: #333;
+      opacity: 0;
+      animation: fadeIn 2s ease forwards;
+      animation-delay: 0.5s;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 12px 24px;
+      font-size: 1rem;
+      font-weight: bold;
+      background-color: #000;
+      color: #fff;
       border: none;
       cursor: pointer;
-      border-radius: 5px;
+      opacity: 0;
+      animation: slideUp 1s ease forwards;
+      animation-delay: 1.2s;
+      transition: transform 0.3s ease;
     }
 
-    .start-container button:hover {
-      background-color: #444;
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(30px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="start-container">
-    <h1>The Headlines</h1>
-    <button onclick="window.location.href='game.html'">Start Game</button>
-  </div>
+  <h1>The Headlines</h1>
+  <p>Are you ready to make headlines?</p>
+  <button onclick="window.location.href='game.html'">Start Game</button>
 </body>
 </html>
