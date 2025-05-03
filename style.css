@@ -84,12 +84,12 @@ h1 {
 }
 
 .options {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 15px;
-  flex-wrap: wrap;
-  animation: slot-spin 0.4s ease-in-out;
 }
+
+
 
 @keyframes slot-spin {
   0% {
