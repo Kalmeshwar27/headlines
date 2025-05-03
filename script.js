@@ -9,7 +9,7 @@ const questions = [
   {
     image: "images/trump1.jpg",
     text: 'Trump says he will be <span id="blank">_____</span> to China in trade talks.',
-    options: ["tough but fair", "very nice", "a total nightmare", "strategically distant"],
+    options: ["fair", "very nice", "nightmare", "distant"],
     answer: "very nice",
     summary: "Donald Trump stated he plans to approach trade negotiations with China in a more cooperative manner. He emphasized being very nice during future talks to ease tensions."
   },
@@ -95,3 +95,4 @@ document.getElementById("prev-btn").onclick = () => {
 };
 
 window.onload = () => loadQuestion(currentIndex);
+
