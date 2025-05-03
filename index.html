@@ -18,7 +18,6 @@
       font-size: 1.5rem;
       color: #ddd4d4;
       animation: pulse 1.5s infinite;
-      
     }
     @keyframes pulse {
       0% { opacity: 0.4; }
@@ -30,7 +29,11 @@
 <body>
   <div class="loader">Loading...</div>
 
+  <!-- 🔊 Play loading sound on load -->
   <script>
+    const loadingSound = new Audio('sounds/loading.mp3');
+    loadingSound.play();
+
     setTimeout(() => {
       window.location.href = "start.html";
     }, 3000); // 3 seconds delay

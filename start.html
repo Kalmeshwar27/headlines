@@ -6,6 +6,7 @@
   <title>Start Game</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    /* your styles remain unchanged */
     body {
       margin: 0;
       background-color: #f9f6f1;
@@ -42,20 +43,18 @@
         z-index: -1;
         background: linear-gradient(
           45deg,
-         
         );
         background-size: 400%;
         border-radius: 14px;
         filter: blur(4px);
         animation: glowing-border 20s linear infinite;
       }
-      
+
       @keyframes glowing-border {
         0% { background-position: 0 0; }
         50% { background-position: 400% 0; }
         100% { background-position: 0 0; }
       }
-      
 
     p {
       font-size: 1.2rem;
@@ -143,6 +142,18 @@
 <body>
   <h1>The Headlines</h1>
   <p>Time to put your knowledge to the test—let's see if you can make the headlines!</p>
-  <button class="button-85" onclick="window.location.href='game.html'">Start Game</button>
+  <button class="button-85" id="start-button">Start Game</button>
+
+  <!-- 🔊 Add sound script -->
+  <script>
+    const clickSound = new Audio('sounds/click.mp3');
+
+    document.getElementById('start-button').addEventListener('click', () => {
+      clickSound.play();
+      setTimeout(() => {
+        window.location.href = 'game.html';
+      }, 200); // Let sound play briefly before redirect
+    });
+  </script>
 </body>
 </html>

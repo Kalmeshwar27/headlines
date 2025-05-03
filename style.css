@@ -84,33 +84,51 @@ h1 {
 }
 
 .options {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  animation: slot-spin 0.4s ease-in-out;
+}
+
+@keyframes slot-spin {
+  0% {
+    transform: scale(0.95) rotateX(90deg);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) rotateX(0);
+    opacity: 1;
+  }
 }
 
 button.option {
-  font-size: 1rem;
-  font-weight: 500;
-  padding: 10px;
-  border: 1px solid #ccc;
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 14px 20px;
+  border: 2px solid #ccc;
   background: #f7f7f7;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
 button.option:hover {
   background-color: #e5e5e5;
+  transform: scale(1.05);
 }
 
 button.correct {
   background-color: #2e7d32;
   color: white;
+  border-color: #2e7d32;
 }
 
 button.wrong {
   background-color: #c62828;
   color: white;
+  border-color: #c62828;
 }
 
 .controls {
@@ -151,5 +169,34 @@ button.wrong {
     padding-left: 20px;
     border-top: none;
     padding-top: 0;
+  }
+}
+/* Slot-style animation for options */
+.option.slot-reel {
+  transform: translateY(-100%) scale(0.9);
+  opacity: 0;
+  animation: reel-in 0.5s ease-out forwards;
+}
+
+@keyframes reel-in {
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+/* Flash glow for correct answer */
+.flash {
+  animation: flash-glow 1s ease-in-out;
+}
+
+@keyframes flash-glow {
+  0% {
+    box-shadow: 0 0 0px rgba(255, 255, 0, 0.8);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 255, 0, 0.9);
+  }
+  100% {
+    box-shadow: 0 0 0px rgba(255, 255, 0, 0.8);
   }
 }
