@@ -251,3 +251,16 @@ button.wrong {
     padding-top: 20px;
   }
 }
+
+.controls span#timer,
+.controls span#score {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #444;
+}
+.result a {
+  color: #0047ab;
+  text-decoration: underline;
+  margin-left: 8px;
+  font-size: 0.95rem;
+}
