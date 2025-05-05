@@ -201,3 +201,53 @@ button.wrong {
   }
 }
 
+@media (max-width: 767px) {
+  body {
+    padding: 20px;
+  }
+
+  .container {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .news p {
+    font-size: 1.2rem;
+  }
+
+  .controls button {
+    width: 100px;
+    padding: 10px;
+    font-size: 0.8rem;
+  }
+
+  .options {
+    grid-template-columns: 1fr;
+  }
+
+  button.option {
+    font-size: 1rem;
+    padding: 12px;
+  }
+
+  .meta {
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.9rem;
+  }
+
+  .card-content {
+    flex-direction: column !important;
+  }
+
+  .news {
+    border-left: none !important;
+    padding-left: 0 !important;
+    border-top: 1px solid #333;
+    padding-top: 20px;
+  }
+}
